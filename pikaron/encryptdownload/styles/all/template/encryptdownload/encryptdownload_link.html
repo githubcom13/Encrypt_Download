@@ -1,0 +1,75 @@
+{% if ENCRYPTD_TEMPLATE_INPUT %}
+	{% if ENCRYPTD_FORUM_ID_ERROR %}
+		<div id="encryptederror" class="rules">
+			<div class="inner">
+				{{ lang('ENCRYPTD_ERROR') }}
+			</div>
+		</div>
+		<hr class="dashed">
+	{% else %}
+		{% if not ENCRYPTD_FORUM_CREATE %}
+			<div id="encryptederror_forum" class="rules">
+				<div class="inner">
+					{{ lang('ENCRYPTD_ALERT_FORUM') }}
+				</div>
+			</div>
+			<hr class="dashed">
+		{% else %}
+			<div class="inner">
+				<p>{{ lang('ENCRYPTD_LINK_EXPLAIN') }}</p>
+				<p><h3>{{ lang('ENCRYPTD_TITLE') }}</h3></p>
+				<fieldset class="fields2">
+					<dl>
+						<dt class="separate"><label for="namefile">{{ lang('ENCRYPTD_NAME_FILE') }}</label></dt>
+						<dd><input type="text" name="namefile" id="namefile" class="inputbox"></dd>
+					</dl>
+					<dl>
+						<dt class="separate"><label for="encryptdownload">{{ lang('ENCRYPTD_FULL_URL') }}</label></dt>
+						<dd><input type="url" name="encryptdownload" id="encryptdownload" class="inputbox"></dd>
+					</dl>
+				</fieldset>
+				<fieldset class="submit-buttons">
+					<input type="button" value="{{ lang('ENCRYPTD_BUTTON') }}" class="button1" onclick="Reload_Body_ED('{{ ENCRYPTD_URL_MAKE }}?encryptdownload='+encodeURIComponent(document.getElementById('encryptdownload').value)+'&namefile='+document.getElementById('namefile').value,'encryptdownloadcontent');">
+					<hr class="dashed">
+				</fieldset>
+				<p>{{ lang('ENCRYPTD_EXPLAIN') }}</p>
+			</div>
+		{% endif %}
+	{% endif %}
+{% endif %}
+
+{% if ENCRYPTD_TEMPLATE_MAKE %}
+	{% if ENCRYPTD_ERRORS %}
+		<div id="encryptdownloaderror" class="rules">
+			<div class="inner">
+				{{ lang('ENCRYPTD_ALERT_URL') }}
+			</div>
+		</div>
+		<fieldset class="submit-buttons">
+			<input type="button" value="{{ lang('ENCRYPTD_BUTTON') }}" class="button1" onclick="Reload_Body_ED('{{ ENCRYPTD_URL_MAKE }}?clear=1','encryptdownloadcontent');">
+			<hr class="dashed">
+		</fieldset>
+	{% else %}
+		<p>{{ lang('ENCRYPTD_FINISH') }}</p>
+		<div class="inner">
+			<p><h3>{{ lang('ENCRYPTD_CORRECT') }}</h3></p>
+			<fieldset class="fields2">
+				<dl>
+					<dt class="separate"><label for="encryptdownload">{{ lang('ENCRYPTD_TITLE_BOX3') }}</label></dt>
+					<dd><input type="text" name="encryptdownload" id="encryptdownload" value="{{ LINK_OK }}" class="inputbox" disabled></dd>
+				</dl>
+				<dl>
+					<dt class="separate"><label></label></dt>
+					<dd>
+						<input type="button" value="{{ lang('ENCRYPTD_TO_POST') }}" class="button1" onclick="insert_text(encryptdownload.value, false); return false;">
+					</dd>
+				</dl>
+			</fieldset>
+			<p><h3>{{ lang('ENCRYPTD_OTHER') }}</h3></p>
+			<fieldset class="submit-buttons">
+				<input type="button" value="{{ lang('ENCRYPTD_BUTTON') }}" class="button1" onclick="Reload_Body_ED('{{ ENCRYPTD_URL_MAKE }}?clear=1','encryptdownloadcontent');">
+				<hr class="dashed">
+			</fieldset>
+		</div>
+	{% endif %}
+{% endif %}

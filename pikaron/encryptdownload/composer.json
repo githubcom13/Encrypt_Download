@@ -1,0 +1,32 @@
+{
+	"name": "pikaron/encryptdownload",
+	"type": "phpbb-extension",
+	"description": "This extension allows you to encrypt the URL of an external download link and allows its use based on the permissions established for Forums. Encrypted links are property of the Forum domain and cannot be used in a different domain. Encrypted links in a Forum can only be decrypted in that same Forum.",
+	"homepage": "https://www.phpbb-es.com/foro/viewtopic.php?f=147&t=43232",
+	"version": "1.0.1",
+	"time": "2019-11-09",
+	"keywords": ["phpbb", "extension", "Encrypt", "Download"],
+	"license": "GPL-2.0-only",
+	"authors": [
+		{
+			"name": "Picaron",
+			"homepage": "https://github.com/picaronin",
+			"role": "Extension Developer"
+		}
+	],
+	"require": {
+		"php": ">=5.6",
+		"phpbb/phpbb": ">=3.2.4"
+	},
+	"extra": {
+		"display-name": "Encrypt Download",
+		"soft-require": {
+			"phpbb/phpbb": ">=3.2.4"
+		},
+		"version-check": {
+			"host": "www.siteproall.com",
+			"directory": "/pikaron/encryptdownload",
+			"filename": "encryptdownload_version"
+		}
+	}
+}

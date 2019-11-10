@@ -1,0 +1,3 @@
+pikaron_encryptdownload_controller:
+    path: /encryptdownload/{mode}
+    defaults: { _controller: pikaron.encryptdownload.controller:handle }

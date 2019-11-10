@@ -1,0 +1,59 @@
+<div class="encrypt-content">
+{% if ENCRYPTD_ERROR %}
+		<fieldset class="encrypt-fieldset-off">
+			<legend class="encrypt-legend-off" title="EXT Encrypt Download: {{ lang('ENCRYPTD_LINK_ERROR_TIT') }}">
+				{{ lang('ENCRYPTD_LINK_ERROR_TIT') }}
+			</legend>
+			<dl class="extra-box-off">
+				<dt>
+					<div class="nofile"></div>
+				</dt>
+				<dd>&nbsp;</dd>
+				<dd><span class="yellow">{{ lang('ENCRYPTD_LINK_ERROR') }}</span></dd>
+			</dl>
+		</fieldset>
+{% else %}
+	{% if ENCRYPTD_FORUM_SHOW and ENCRYPTD_FORUM_SAME and ENCRYPTD_FORUM_NOT_ID %}
+		<fieldset class="encrypt-fieldset-on">
+			<legend class="encrypt-legend-on" title="EXT Encrypt Download: {{ lang('ENCRYPTD_LINK_ENABLED') }} {{ lang('ENCRYPTD_FORUM_ID', ENCRYPTD_DOMAIN, ENCRYPTD_FORUM_ID) }}">
+				{{ lang('ENCRYPTD_LINK_ENABLED') }} <a href="{{ ENCRYPTD_URL_FORUM_ID }}" target="_parent">{{ lang('ENCRYPTD_FORUM_ID', ENCRYPTD_DOMAIN, ENCRYPTD_FORUM_ID) }}</a>
+			</legend>
+			<dl class="extra-box-on">
+				<dt>
+					<a href="{{ ENCRYPTD_URL_FILE }}" target="_blank" title="{{ lang('ENCRYPTD_LINK_DONWLOAD') }} {{ ENCRYPTD_NAME_FILE }}"></a>
+				</dt>
+				<dd>{{ lang('ENCRYPTD_FILE_DESC') }} <span>{{ ENCRYPTD_DESC_FILE }}</span></dd>
+				{% if ENCRYPTD_DATA_FILE %}
+				<dd>{{ lang('ENCRYPTD_FILE_FILE') }} <span>{{ ENCRYPTD_NAME_FILE }}</span></dd>
+				<dd>{{ lang('ENCRYPTD_FILE_MIME') }} <span>{{ ENCRYPTD_MIME_FILE }}</span></dd>
+				<dd>{{ lang('ENCRYPTD_FILE_SIZE') }} <span>{{ ENCRYPTD_SIZE_FILE }}</span></dd>
+				{% endif %}
+			</dl>
+		</fieldset>
+	{% else %}
+		<fieldset class="encrypt-fieldset-off">
+			<legend class="encrypt-legend-off" title="EXT Encrypt Download: {{ lang('ENCRYPTD_LINK_DISABLED') }} {{ lang('ENCRYPTD_FORUM_ID', ENCRYPTD_DOMAIN, ENCRYPTD_FORUM_ID) }}">
+				{{ lang('ENCRYPTD_LINK_DISABLED') }} <a href="{{ ENCRYPTD_URL_FORUM_ID }}" target="_parent">{{ lang('ENCRYPTD_FORUM_ID', ENCRYPTD_DOMAIN, ENCRYPTD_FORUM_ID) }}</a>
+			</legend>
+			<dl class="extra-box-off">
+				<dt>
+					<div class="nofile"></div>
+				</dt>
+				<dd>{{ lang('ENCRYPTD_FILE_DESC') }} <span>{{ ENCRYPTD_DESC_FILE }}</span></dd>
+				<dd>&nbsp;</dd>
+				{% if not ENCRYPTD_FORUM_SAME %}
+				<dd><span class="yellow">{{ lang('ENCRYPTD_FORUM_NOT_SAME', ENCRYPTD_DOMAIN) }}</span></dd>
+				{% else %}
+					{% if not ENCRYPTD_FORUM_NOT_ID %}
+					<dd><span class="yellow">{{ lang('ENCRYPTD_FORUM_NOT_ID', ENCRYPTD_FORUM_ID) }}</span></dd>
+					{% else %}
+						{% if not ENCRYPTD_FORUM_SHOW %}
+						<dd><span class="yellow">{{ lang('ENCRYPTD_USER_NOT_ALLOW') }}</span></dd>
+						{% endif %}
+					{% endif %}
+				{% endif %}
+			</dl>
+		</fieldset>
+	{% endif %}
+{% endif %}
+</div>

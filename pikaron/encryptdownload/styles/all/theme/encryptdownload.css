@@ -1,0 +1,131 @@
+/*	Encrypt Download Styling
+--------------------------- */
+
+fieldset.fields2 dt.separate {
+	width: 24em;
+}
+
+/*	Permissions OK
+--------------------------- */
+
+.encrypt-content {
+	overflow: auto;
+	line-height: 21px;
+	font-size: 14px;
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+}
+
+fieldset.encrypt-fieldset-on {
+	background: rgba(0, 0, 0, 0) linear-gradient(45deg, #2b80ff 0%, #9eddfb 100%) repeat scroll 0 0;
+	border: 1px solid #2d68c1;
+	border-radius: 8px;
+}
+
+legend.encrypt-legend-on {
+	background-color: #085abf;
+	color: aliceblue;
+	border: 1px solid #000000;
+	border-radius: 8px;
+	padding: 5px 10px;
+	margin-left: 2px;
+}
+
+legend.encrypt-legend-on a {
+	text-shadow: 1px 1px 1px rgba(12, 201, 240, 0.91);
+	color: #ffffff !important;
+	text-decoration: none;
+}
+
+dl.extra-box-on {
+	padding: 15px;
+	text-decoration: none !important;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+	font-weight: bold;
+	color: #ffffff !important;
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+}
+
+dl.extra-box-on dt {
+	width: auto;
+	float: left;
+}
+
+dl.extra-box-on dd {
+	margin-left: 15%;
+	word-break: break-all;
+}
+
+dl.extra-box-on span {
+	font-weight: normal;
+}
+
+dl.extra-box-on dt a {
+	background-image:url('./images/download-arrow.png');
+	width: 100px;
+	height: 100px;
+	display: block;
+	color:transparent;
+}
+
+dl.extra-box-on dt a:hover {
+	background-position: left bottom;
+}
+
+/*	Not Permissions
+--------------------------- */
+fieldset.encrypt-fieldset-off {
+	background: rgba(0, 0, 0, 0) linear-gradient(45deg, #b7711a 0%, #f9be3c 100%) repeat scroll 0 0;
+	border: 1px solid #865b0f;
+	border-radius: 8px;
+}
+
+legend.encrypt-legend-off {
+	background-color: #800404;
+	color: lightpink;
+	border: 1px solid #000000;
+	border-radius: 8px;
+	padding: 5px 10px;
+	margin-left: 2px;
+}
+
+legend.encrypt-legend-off a {
+	text-shadow: 1px 1px 1px rgba(242, 11, 11, 0.91);
+	color: #f7cfcf !important;
+	text-decoration: none;
+}
+
+dl.extra-box-off {
+	padding: 15px;
+	text-decoration: none !important;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+	font-weight: bold;
+	color: #ffffff !important;
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+}
+
+dl.extra-box-off dt {
+	width: auto;
+	float: left;
+}
+
+dl.extra-box-off dd {
+	margin-left: 15%;
+	word-break: break-all;
+}
+
+dl.extra-box-off span {
+	font-weight: normal;
+}
+
+dl.extra-box-off span.yellow {
+	color: yellow;
+	font-weight: bold;
+}
+
+dl.extra-box-off div.nofile {
+	background-image:url('./images/no-download-arrow.png');
+	width: 100px;
+	height: 100px;
+	display: block;
+	color:transparent;
+}

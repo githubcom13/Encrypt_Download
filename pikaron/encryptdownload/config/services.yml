@@ -1,0 +1,37 @@
+services:
+    pikaron.encryptdownload.listener:
+        class: pikaron\encryptdownload\event\listener
+        arguments:
+            - '@pikaron.encryptdownload.core.functions.encryptdownload'
+            - '@dbal.conn'
+            - '@auth'
+            - '@request'
+            - '@config'
+            - '@template'
+            - '%core.root_path%'
+            - '%core.php_ext%'
+
+        tags:
+            - { name: event.listener }
+
+    pikaron.encryptdownload.core.functions.encryptdownload:
+        class: pikaron\encryptdownload\core\functions_encryptdownload
+        arguments:
+            - '@request'
+
+    pikaron.encryptdownload.controller:
+        class: pikaron\encryptdownload\controller\main
+        arguments:
+            - '@pikaron.encryptdownload.core.encryptdownload.link'
+
+    pikaron.encryptdownload.core.encryptdownload.link:
+        class: pikaron\encryptdownload\core\encryptdownload_link
+        arguments:
+            - '@pikaron.encryptdownload.core.functions.encryptdownload'
+            - '@template'
+            - '@language'
+            - '@auth'
+            - '@request'
+            - '@user'
+            - '%core.root_path%'
+            - '%core.php_ext%'
